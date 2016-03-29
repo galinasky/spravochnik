@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block login %}
+<div class="row">
+<!--<div class="large-offset-3 large-6 columns">-->
+    <div class="col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
+            <form action="/auth/login/" method="POST" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="username"> имя пользователя: </label>
+                <div class="col-lg-9">
+                <input type="text" id="username" name="username" placeholder="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="password"> пароль: </label>
+                <div class="col-lg-9 controls">
+                    <input type="password" id="password" name="password" placeholder="password">
+                </div>
+            </div>
+                <div class="control-group col-lg-10 col-lg-offset-2">
+            {% if login_error %}
+            <p class="text-warning"><b>{{ login_error }}</b></p>
+                {% endif %}
+
+                <!--<input class="button" type="submit" value="Войти">-->
+                <button type="submit" class="btn">Войти</button>
+                <!--<a href="/auth/register/" class="btn btn-info">Регистрация</a>-->
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block books %}
+<div class="container">
+<!--<div class="large-8" >-->
+
+    <div class="row">
+        <table class="table table-striped">
+            <tr class="primary">
+                <th>фамилия</th>
+                <th>имя</th>
+                <th>почта</th>
+                <th>телефон</th>
+                <th>должность</th>
+            </tr>
+        {% for book in books %}
+            <tr class="primary">
+            <td>{{ book.last_name }}</td>
+            <td>{{ book.first_name }}</td>
+            <td>{{ book.e_mail }}</td>
+            <td>{{ book.telephon }}</td>
+            <td>{{ book.doljn }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <!--< div class="row">
+        <!--<div class="large-3 large-offset-5 columns">-->
+     <!---   <div class="col-lg-7 col-lg-offset-5 col-md-7 col-md-offset-5 col-sm-7 col-sm-offset-5 col-xs-7 col-xs-offset-5">
+            <ul class="pagination">
+                {% if articles.has_previous %}
+                <li><a href="/books/page/1/" class="btn btn-info">&laquo;&laquo;</a></li>
+                {% else %}
+                <li><a href="#" class="btn btn-info  disabled">&laquo;&laquo;</a></li>
+                {% endif %}
+                {% if articles.has_previous %}
+                <li><a href="/books/page/{{ articles.previous_page_number }}/" class="btn btn-info">&laquo;</a></li>
+                {% else %}
+                <li><a href="" class="btn btn-info disabled">&laquo;</a></li>
+                {% endif %}
+                {% for page in articles.paginator.page_range %}
+                {% if page == articles.number %}
+                <li><a href="/books/page/{{ page }}/" class="btn disabled">{{ page }}</a></li>
+                {% else %}
+                <li><a href="/books/page/{{ page }}/" class="btn">{{ page }}</a></li>
+                {% endif %}
+                {% endfor%}
+                {% if articles.has_next %}
+                <li><a href="/books/page/{{ articles.next_page_number }}/" class="btn btn-info">&raquo;</a></li>
+                {% else %}
+                <li><a href="" class="btn btn-info disabled">&raquo;</a></li>
+                {% endif %}
+                {% if articles.has_next %}
+                <li><a href="/books/page/{{ articles.paginator.num_pages }}/" class="btn btn-info">&raquo;&raquo;</a></li>
+                <!--последяя страница-->
+     <!--           {% else %}
+                <li><a href="#" class="btn btn-info disabled">&raquo;&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    <div>-->
+</div>
+{% endblock %}
