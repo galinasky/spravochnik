@@ -15,8 +15,8 @@
         <div class="collaps navbar-collaps pull-right">
             <ul  class="nav navbar-nav">
             <li>{% if username %}
-                <li><form action="/serch2/{{serch_id}}" method="post">
-                {% csrf_token %}
+                <li><form action="/serch3/{{serch_id}}" method="get">
+                <!--{% csrf_token %}-->
                     <input id="serch_id" name="serch_id" type="text">
                     <button type="submit" class="btn">поиск</button>
                 </form></li>
@@ -37,7 +37,9 @@
 <h1><a href="/books/">справочник сотрудников</a></h1>
 {% endif %}
 <div class="container">
+    {% if username %}
 {% block books %}{% endblock %}
+    {% endif %}
 {% block login %}{% endblock %}
 
 </div>

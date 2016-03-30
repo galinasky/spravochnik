@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^books/$', 'book.views.booksall', name='booksall'),
     url(r'^serch/(?P<serch_id>\w+)/$', 'book.views.serch1'),
     url(r'^serch2/$', 'book.views.serch'),
+    #url(r'^serch3/[\?w]serch_id=(?P<serch_id>\w+)/$', 'book.views.serch3'),
+    url(r'^serch3/$', 'book.views.serch3'),
     url(r'^$', 'book.views.booksall', name='booksall'),
 ]

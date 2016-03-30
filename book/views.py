@@ -17,12 +17,17 @@ def serch(request):
     args = {}
     args.update(csrf(request))
     if request.POST:
-        serch_id=''
+        serch_id = request.POST.get('serch_id', '')
         args['books'] = Books.objects.filter(last_name=serch_id)
         args['username'] = auth.get_user(request).username
         return render_to_response('booksall.html', args)
     else:
         return render_to_response('booksall.html', args)
+
+def serch3(request):
+    serch_id = request.GET.get('serch_id')
+    return render_to_response('booksall.html', {'books': Books.objects.filter(last_name=serch_id), 'username': auth.get_user(request).username})
+
 
 def serch1(request, serch_id):
 

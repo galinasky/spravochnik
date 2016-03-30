@@ -17,5 +17,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^serch3/', include('book.urls')),
     url(r'^', include('book.urls')),
 ]

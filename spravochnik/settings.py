@@ -90,7 +90,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'Vladivostok'
+TIME_ZONE = 'Asia/Vladivostok'
 
 USE_I18N = True
 
