@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^auth/login/', 'book.views.login'),
     url(r'^auth/logout/', 'book.views.logout'),
     url(r'^books/$', 'book.views.booksall', name='booksall'),
-    url(r'^serch/$', 'book.views.serch'),
+    url(r'^serch/(?P<serch_id>\w+)/$', 'book.views.serch1'),
+    url(r'^serch2/$', 'book.views.serch'),
     url(r'^$', 'book.views.booksall', name='booksall'),
 ]

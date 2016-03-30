@@ -4,6 +4,7 @@
 <div class="container">
 <!--<div class="large-8" >-->
 
+
     <div class="row">
         <table class="table table-striped">
             <tr class="primary">
@@ -19,7 +20,7 @@
             <td>{{ book.first_name }}</td>
             <td>{{ book.e_mail }}</td>
             <td>{{ book.telephon }}</td>
-            <td>{{ book.doljn }}</td>
+            <td><a href='/serch/{{ book.doljn }}/' >{{ book.doljn }}</a></td>
             </tr>
         {% endfor %}
         </table>

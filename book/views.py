@@ -8,6 +8,7 @@ from django.core.context_processors import csrf
 from django.template.loader import get_template
 from django.template import context
 
+
 # Create your views here.
 def booksall(request):
     return render_to_response('booksall.html', {'books': Books.objects.all(), 'username': auth.get_user(request).username})
@@ -15,11 +16,17 @@ def booksall(request):
 def serch(request):
     args = {}
     args.update(csrf(request))
-    serch_id = request.POST.get('serch_id', '')
-    args['books'] = Books.objects.filter(last_name=serch_id)
-    args['username'] = auth.get_user(request).username
-    return render_to_response('booksall.html', args)
+    if request.POST:
+        serch_id=''
+        args['books'] = Books.objects.filter(last_name=serch_id)
+        args['username'] = auth.get_user(request).username
+        return render_to_response('booksall.html', args)
+    else:
+        return render_to_response('booksall.html', args)
 
+def serch1(request, serch_id):
+
+    return render_to_response('booksall.html', {'books': Books.objects.filter(doljn=serch_id), 'username': auth.get_user(request).username})
 
 def login(request):
     args = {}
